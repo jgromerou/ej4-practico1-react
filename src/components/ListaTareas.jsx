@@ -1,13 +1,13 @@
-import { ListGroup } from "react-bootstrap";
-import ItemTarea from "./ItemTarea";
-const ListaTareas = () => {
-    return (
-        <ListGroup>
-            <ItemTarea tarea='Planificar'></ItemTarea>
-            <ItemTarea tarea='Maquetar'></ItemTarea>
-            <ItemTarea tarea='Codear'></ItemTarea>
-        </ListGroup>
-    );
+import { ListGroup } from 'react-bootstrap';
+import ItemTarea from './ItemTarea';
+const ListaTareas = ({ listaTareas }) => {
+  return (
+    <ListGroup id="listgroup">
+      {listaTareas.map((tarea, index) => (
+        <ItemTarea key={index} tarea={tarea}></ItemTarea>
+      ))}
+    </ListGroup>
+  );
 };
 
 export default ListaTareas;

@@ -3,14 +3,18 @@ import { Form, Button } from 'react-bootstrap';
 import ListaTareas from './ListaTareas';
 
 const FormularioTarea = () => {
+  let listaTareas = ['Planificar', 'Codear', 'Maquetar', 'Testing'];
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue);
+    agregarTarea(inputValue);
   };
 
-  //Todo: Hacer la logica de agregar una tarea a la lista
+  const agregarTarea = (tarea) => {
+    //Todo: Hacer la logica de agregar una tarea a la lista
+    console.log(tarea);
+  };
 
   return (
     <section>
@@ -27,7 +31,7 @@ const FormularioTarea = () => {
           </Button>
         </Form.Group>
       </Form>
-      <ListaTareas></ListaTareas>
+      <ListaTareas listaTareas={listaTareas}></ListaTareas>
     </section>
   );
 };
