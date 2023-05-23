@@ -3,17 +3,19 @@ import { Form, Button } from 'react-bootstrap';
 import ListaTareas from './ListaTareas';
 
 const FormularioTarea = () => {
-  let listaTareas = ['Planificar', 'Codear', 'Maquetar', 'Testing'];
-  const [inputValue, setInputValue] = useState('');
+  const [inputTarea, setInputTarea] = useState('');
+  const [listaTareas, setListaTareas] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    agregarTarea(inputValue);
+    agregarTarea(inputTarea);
   };
 
   const agregarTarea = (tarea) => {
-    //Todo: Hacer la logica de agregar una tarea a la lista
-    console.log(tarea);
+    //se agrega nueva tarea a la lista de tareas
+    setListaTareas([...listaTareas, tarea]);
+    //limpiar el input Tarea
+    setInputTarea('');
   };
 
   return (
@@ -23,8 +25,8 @@ const FormularioTarea = () => {
           <Form.Control
             type="text"
             placeholder="Ingrese una tarea"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
+            value={inputTarea}
+            onChange={(event) => setInputTarea(event.target.value)}
           />
           <Button variant="primary" type="submit">
             Enviar
